@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/blankFragmentNav">
+
+    <fragment
+        android:id="@+id/blankFragmentNav"
+        android:name="com.example.fragmentapp.NavBlankFragment"
+        android:label="fragment_blank_nav"
+        tools:layout="@layout/fragment_blank_nav" >
+        <action
+            android:id="@+id/action_blankFragmentNav_to_scrollingFragmentNav"
+            app:destination="@id/scrollingFragmentNav"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/scrollingFragmentNav"
+        android:name="com.example.fragmentapp.NavScrollingFragment"
+        android:label="fragment_scrolling_nav"
+        tools:layout="@layout/fragment_scrolling_nav" >
+        <action
+            android:id="@+id/action_scrollingFragmentNav_to_navBlankFragment2"
+            app:destination="@id/navBlankFragment2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/navBlankFragment2"
+        android:name="com.example.fragmentapp.NavBlankFragment2"
+        android:label="fragment_nav_blank2"
+        tools:layout="@layout/fragment_nav_blank2" />
+</navigation>

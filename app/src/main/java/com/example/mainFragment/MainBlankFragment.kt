@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.fragmentapp.R
 import com.example.fragmentapp.SharedViewModel
 import com.example.fragmentapp.databinding.FragmentMainBlankBinding
@@ -24,6 +24,8 @@ class MainBlankFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var sharedViewModel: SharedViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,15 +43,15 @@ class MainBlankFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main_blank, container, false)
         val binding = FragmentMainBlankBinding.bind(view)
 
-        val viewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
 
-        viewModel.nameStudent.observe(viewLifecycleOwner, { nameStudents ->
+        sharedViewModel.nameStudent.observe(viewLifecycleOwner, { nameStudents ->
             binding.blankMainET.setText(nameStudents)
         })
 
         binding.save1.setOnClickListener {
-            viewModel.setEditText(binding.blankMainET.text.toString())
+            sharedViewModel.setEditText(binding.blankMainET.text.toString())
 
         }
 

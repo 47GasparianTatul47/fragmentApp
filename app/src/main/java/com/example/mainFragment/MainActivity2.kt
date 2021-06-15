@@ -2,8 +2,6 @@ package com.example.mainFragment
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fragmentapp.MainBlankFragment
-import com.example.fragmentapp.MainBlankFragment2
 import com.example.fragmentapp.R
 
 class MainActivity2 : AppCompatActivity() {

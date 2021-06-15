@@ -1,4 +1,4 @@
-package com.example.fragmentapp
+package com.example.mainFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.example.fragmentapp.databinding.FragmentMainBlankBinding
+import com.example.fragmentapp.R
+import com.example.fragmentapp.SharedViewModel
+import com.example.fragmentapp.databinding.FragmentMainBlank2Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,10 +17,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [MainBlankFragment.newInstance] factory method to
+ * Use the [MainBlankFragment2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MainBlankFragment : Fragment() {
+class MainBlankFragment2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,20 +38,20 @@ class MainBlankFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_main_blank, container, false)
-        val binding = FragmentMainBlankBinding.bind(view)
+        val view = inflater.inflate(R.layout.fragment_main_blank2, container, false)
+        val binding = FragmentMainBlank2Binding.bind(view)
 
         val viewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
 
-
         viewModel.nameStudent.observe(viewLifecycleOwner, { nameStudents ->
-            binding.blankMainET.setText(nameStudents)
+            binding.blankMainET2.setText(nameStudents)
         })
-
-        binding.save1.setOnClickListener {
-            viewModel.setEditText(binding.blankMainET.text.toString())
+        binding.save2.setOnClickListener {
+            viewModel.setEditText(binding.blankMainET2.text.toString())
 
         }
+
+
 
         return binding.root
     }
@@ -61,12 +63,12 @@ class MainBlankFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment MainBlankFragment.
+         * @return A new instance of fragment MainBlankFragment2.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            MainBlankFragment().apply {
+            MainBlankFragment2().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

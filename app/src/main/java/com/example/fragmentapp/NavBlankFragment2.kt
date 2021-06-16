@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import com.example.mainFragment.MainActivity2
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fragmentapp.databinding.FragmentNavBlank2Binding
+import com.example.mainFragment.MainActivity2
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,8 +41,62 @@ class NavBlankFragment2 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+
         val view = inflater.inflate(R.layout.fragment_nav_blank2, container, false)
         val binding = FragmentNavBlank2Binding.bind(view)
+
+
+        val list = mutableListOf(
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+            Models("Hello", R.drawable.ic_baseline_adb_24),
+            Models("World", R.drawable.ic_baseline_bedtime_24),
+
+
+            )
+        val adapter = MyRecyclerView(requireActivity().applicationContext,
+            list
+        )
+
+        binding.mrecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.mrecyclerView.adapter = adapter
+
+
+        binding.add.setOnClickListener {
+
+            adapter.addItem(Models("New Irem", R.drawable.ic_launcher_background))
+        }
+
+        binding.remove.setOnClickListener {
+            adapter.remove(0)
+        }
+
 
 
         binding.intentNewActivity.setOnClickListener {
